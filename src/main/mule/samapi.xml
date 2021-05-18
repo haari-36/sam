@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="27b2df7b-69e3-4eb4-ac00-fd1801265f35" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="samapiFlow" doc:id="0ca2f3c3-60de-4326-b7cf-900f5b77451b" >
+		<http:listener doc:name="Listener" doc:id="a1b74e89-f4f0-44d3-b742-8ee19e29792c" config-ref="HTTP_Listener_config" path="/sam"/>
+		<logger level="INFO" doc:name="Logger" doc:id="5a23fa48-cfec-454a-a08f-9b1f93521880" message='#["hello world"]'/>
+	</flow>
+</mule>
